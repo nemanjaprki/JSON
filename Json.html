@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+</head>
+<body> 
+      <div id="container"></div>
+      <button onclick="jsonTest()">Stringify</button> 
+      <button onclick="jsonDemo()">Parse</button>
+     <script> 
+            var student = { 
+                  name: "Pera", 
+                  surname: "Peric", 
+                  born: 1995, 
+                  trenutnoUpisan: true, 
+                  polozeniIspiti: [ 
+                         { name: "uvod u programiranje", 
+                           ocena: 9 
+                         }, 
+                         { 
+                           name: "Marketing", 
+                           ocena: 7
+                         }
+                       ], 
+                 PrikaziSe: function() { 
+                       var mainDiv = document.createElement("div"); 
+                       mainDiv.innerHTML = this.name + " " + this.surname; 
+                       return mainDiv;
+                        }
+                   };  
+              
+                                
+               console.log(student); 
+               document.getElementById("container").appendChild(student.PrikaziSe());
+ 
+                var trenutniJson;
+               
+               function jsonTest() { 
+                   var jsonStr = JSON.stringify(student); 
+                    console.log(jsonStr); 
+                    trenutniJson=jsonStr;
+               }
+                
+               function jsonDemo() { 
+                   var o = JSON.parse(trenutniJson); 
+                   console.log(o);
+               }
+
+     </script>
+
+
+
+</body>
+</html>
